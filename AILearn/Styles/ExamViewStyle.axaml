@@ -1,0 +1,135 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+    <Design.PreviewWith>
+        <Border Padding="20" Width="400" Height="150">
+            <!-- Add Controls for Previewer Here -->
+            <Grid ColumnDefinitions="* *">
+                <Button Grid.Column="0" Classes="previous">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <icons:MaterialIcon Kind="ArrowLeft"/>
+                        <TextBlock>Previous</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="1" Classes="next">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock>Next</TextBlock>
+                        <icons:MaterialIcon Kind="ArrowRight"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="RadioButton.questionOption">
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+        <Setter Property="Background" Value="#1C2630"/>
+        <Setter Property="BorderBrush" Value="#202B39"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="50"></Setter>
+        <Setter Property="Margin" Value="0, 4"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="OuterBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <Grid ColumnDefinitions="Auto *">
+                        <Ellipse Name="Indicator"
+                                 Grid.Column="0"
+                                 Width="18"
+                                 Height="18"
+                                 Margin="6, 0, 12, 0"
+                                 VerticalAlignment="Center"
+                                 Stroke="{TemplateBinding Foreground}"
+                                 StrokeThickness="2"/>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Grid.Column="1"
+                                          Content="{TemplateBinding Content}"
+                                          VerticalAlignment="Center"
+                                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                                          TextWrapping="Wrap"/>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="RadioButton.questionOption:pointerover /template/ Border#OuterBorder">
+        <Setter Property="Background" Value="#25313D"></Setter>
+        <Setter Property="BorderBrush" Value="#314154"/>
+    </Style>
+    
+    <Style Selector="RadioButton.questionOption:checked /template/ Border#OuterBorder">
+        <Setter Property="Background" Value="#122334"/>
+        <Setter Property="BorderBrush" Value="#1983EF"/>
+    </Style>
+    
+    <Style Selector="RadioButton.questionOption:checked /template/ Ellipse#Indicator">
+        <Setter Property="Stroke" Value="#DDDDDE"/>
+        <Setter Property="Fill" Value="#0175E8"/>
+    </Style>
+    
+    <Style Selector="icons|MaterialIcon.grey">
+        <Setter Property="Foreground" Value="#9AAAC0"/>
+    </Style>
+    
+    <Style Selector="TextBlock.grey">
+        <Setter Property="Foreground" Value="#9AAAC0"/>
+    </Style>
+    
+    <Style Selector="TextBlock.white">
+       <Setter Property="Foreground" Value="#DDDDDE"></Setter>
+    </Style>
+    
+    <Style Selector="TextBlock.percentComplete">
+        <Setter Property="Foreground" Value="#1562B3"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style Selector="Button.next">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+        <Setter Property="Background" Value="#197FE6"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+    
+    <Style Selector="Button.previous">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+        <Setter Property="Background" Value="#1D283A"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+    
+    <Style Selector="Button.submitButton">
+        <Setter Property="Background" Value="#111921"/>
+        <Setter Property="Foreground" Value="#808FA5"/>
+    </Style>
+    
+    <Style Selector="Border.timerNotch">
+        <Setter Property="BorderBrush" Value="#222D3C"/>
+        <Setter Property="CornerRadius" Value="8"></Setter>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="#1B252F"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+    
+    <Style Selector="Border.topBar">
+        <Setter Property="BorderBrush" Value="#161F2B"/>
+        <Setter Property="BorderThickness" Value="0,0,0,2"></Setter>
+    </Style>
+    
+    <Style Selector="Border.main">
+        <Setter Property="Background" Value="#111921"/>
+    </Style>
+</Styles>

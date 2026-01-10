@@ -1,0 +1,80 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AILearn.ViewModels"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AILearn.Views.ExamView"
+             x:DataType="vm:ExamViewModel">
+    
+    <UserControl.Styles>
+        <StyleInclude Source="avares://AILearn/Styles/ExamViewStyle.axaml"/>
+    </UserControl.Styles>
+    
+    <Border Classes="main">
+        <ScrollViewer>
+            <Grid RowDefinitions="Auto *">
+                <Border Grid.Row="0" Padding="8, 13" Classes="topBar">
+                    <Grid ColumnDefinitions="Auto * Auto"  HorizontalAlignment="Stretch">
+                        <icons:MaterialIcon Grid.Column="0" Height="24" Width="24" Kind="PauseCircle" Classes="grey"/>
+                        <Border Classes="timerNotch" Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" Spacing="3"  HorizontalAlignment="Center">
+                                <icons:MaterialIcon Kind="Timer" Foreground="#187FE7"/>
+                                <TextBlock Text="00:45:30" Classes="white" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <Button Grid.Column="2" Classes="submitButton">Submit</Button>
+                    </Grid>
+                </Border>
+                
+                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10, 20">
+                   <StackPanel Orientation="Vertical">
+                       <Grid ColumnDefinitions="* Auto">
+                           <TextBlock Grid.Column="0" Classes="grey">
+                               <TextBlock.Text>
+                                   <MultiBinding StringFormat="Questions {0} of {1}">
+                                       <Binding Path="QuestionNumber"/>
+                                       <Binding Path="QuestionCount"/>
+                                   </MultiBinding>
+                                   
+                               </TextBlock.Text>
+                           </TextBlock>
+                           <TextBlock Grid.Column="1" Classes="percentComplete" Text="24%" HorizontalAlignment="Right"/>
+                       </Grid>
+                       <ProgressBar Minimum="0" Maximum="100" Height="10" Value="24" Margin="0, 5"/>
+                   </StackPanel>
+                    
+                        <StackPanel Margin="0, 10" Orientation="Vertical">
+                            <Grid RowDefinitions="Auto Auto">
+                                <ScrollViewer Grid.Row="1" Height="100">
+                                    <TextBlock Margin="0, 15" Classes="white" TextWrapping="Wrap" Text="{Binding QuestionText}"/>
+                                </ScrollViewer>
+                            </Grid>
+                            <StackPanel Orientation="Vertical">
+                                <RadioButton Classes="questionOption"><TextBlock Text="{Binding FirstOption}"/></RadioButton>
+                                <RadioButton Classes="questionOption"><TextBlock Text="{Binding SecondOption}"/></RadioButton>
+                                <RadioButton Classes="questionOption"><TextBlock Text="{Binding ThirdOption}"/></RadioButton>
+                                <RadioButton Classes="questionOption"><TextBlock Text="{Binding FourthOption}"/></RadioButton>
+                            </StackPanel>
+                            
+                            <Grid ColumnDefinitions="* *" Margin="0, 20" ColumnSpacing="10">
+                                <Button Grid.Column="0" Classes="previous">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <icons:MaterialIcon Kind="ArrowLeft" Height="24" Width="24" VerticalAlignment="Center"/>
+                                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Previous</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Column="1" Classes="next">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Next</TextBlock>
+                                        <icons:MaterialIcon Kind="ArrowRight" Height="24" Width="24" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</UserControl>

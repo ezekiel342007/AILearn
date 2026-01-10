@@ -1,0 +1,101 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+    <Design.PreviewWith>
+        <Border Width="800" Height="450" x:Name="Main">
+            <!-- Add Controls for Previewer Here -->
+
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Button.startButton">
+        <Setter Property="Margin" Value="0, 40, 0, 0"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Background" Value="#197FE6"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+    
+    <Style Selector="Border#Main">
+        <Setter Property="Background" Value="#111921"/>
+        <Setter Property="Padding" Value="8"/>
+    </Style>
+
+    
+    <Style Selector="Button.startButton TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+    
+    <Style Selector="Button.noOfQuestionsOption">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Background"></Setter>
+    </Style>
+    
+    <Style Selector="Button.timeOption">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background"/>
+        <Setter Property="Height" Value="38"/>
+    </Style>
+    
+    <Style Selector="Button.timeOption TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+        
+    <Style Selector="ComboBox.dropdown">
+        <Setter Property="Background" Value="#1C242D"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+        <Setter Property="BorderBrush" Value="#232D3A"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style Selector="TextBlock.bold">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style Selector="TextBlock.grey">
+        <Setter Property="Foreground" Value="#5E6A7A"/>
+    </Style>
+    
+    <Style Selector="TextBlock.white">
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+    </Style>
+    
+    <Style Selector="Border.MarginBorder">
+        <Setter Property="Padding" Value="14"/>
+    </Style>
+        
+    <Style Selector="RadioButton.examMode">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="RootBorder"
+                        Background="#1C242D"
+                        BorderBrush="#232D3A"
+                        BorderThickness="2"
+                        Padding="12"
+                        CornerRadius="12"
+                        HorizontalAlignment="Stretch"
+                >
+                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="RadioButton.examMode:checked /template/ Border#RootBorder">
+        <Setter Property="Background" Value="#122334"/>
+        <Setter Property="BorderBrush" Value="#154476"/>
+    </Style>
+</Styles>

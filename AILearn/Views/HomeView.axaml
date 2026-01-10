@@ -1,0 +1,178 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AILearn.ViewModels"
+             xmlns:conv="clr-namespace:AILearn.Converters"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AILearn.Views.HomeView"
+             x:DataType="vm:HomeViewModel">
+    
+    <UserControl.Resources>
+        <conv:EnumToBoolConverter x:Key="EnumToBool"/>
+    </UserControl.Resources>
+    
+    <UserControl.Styles>
+        <StyleInclude Source="avares://AILearn/Styles/HomeViewStyles.axaml"></StyleInclude>
+    </UserControl.Styles>
+    
+    <UserControl.DataContext>
+        <vm:HomeViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid RowDefinitions="Auto *">
+        <Border Grid.Row="0"
+                BorderBrush="#232D3A"
+                BorderThickness="0, 0, 0, 2"
+                Padding="12, 0">
+                <Image Source="avares://AILearn/Assets/AIPractice_Logo.png" HorizontalAlignment="Left" Width="150" Height="50"/>
+        </Border>
+        
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+                <Border Classes="MarginBorder">
+                   <StackPanel Orientation="Vertical" Spacing="18">
+                       <StackPanel Orientation="Vertical">
+                           <TextBlock Classes="bold white" Text="Setup New Exam" FontSize="32"/>
+                           <TextBlock Classes="grey" Text="Configure your session preferences below"/>
+                       </StackPanel>
+                       <StackPanel Orientation="Vertical" Spacing="4">
+                           <TextBlock Classes="white">Major</TextBlock>
+                           <ComboBox ItemsSource="{Binding CourseMajors}" 
+                                     SelectedItem="{Binding Major}" 
+                                     Classes="dropdown" SelectedIndex="0">
+                           </ComboBox>
+                       </StackPanel>
+                       <StackPanel Orientation="Vertical" Spacing="4">
+                           <TextBlock Classes="white">Course</TextBlock>
+                           <ComboBox ItemsSource="{Binding Courses}" 
+                                     SelectedItem="{Binding Course}" 
+                                     Classes="dropdown" SelectedIndex="0">
+                           </ComboBox>
+                       </StackPanel>
+                       
+                      <StackPanel Orientation="Vertical" Spacing="12">
+                          <TextBlock Classes="white" Text="Exam mode" FontWeight="Bold"/>
+                            <UniformGrid Columns="2" ColumnSpacing="14">
+                               <RadioButton Classes="examMode" IsChecked="{Binding SelectedMode, Converter={StaticResource EnumToBool}, ConverterParameter=Study}">
+                                    <StackPanel Orientation="Vertical" Spacing="8">
+                                        <Border Background="#15294D" Width="50" Height="50" CornerRadius="25" HorizontalAlignment="Left">
+                                            <icons:MaterialIcon Foreground="#1983EF" HorizontalAlignment="Center" Height="32" Width="32" Kind="BookEducation"/>
+                                        </Border>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="Study Mode" FontWeight="Bold"/>
+                                            <TextBlock Classes="grey">
+                                                Instant answers &amp;<LineBreak/> explanations
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </RadioButton>
+                                               
+                                <RadioButton Classes="examMode" IsChecked="{Binding SelectedMode, Converter={StaticResource EnumToBool}, ConverterParameter=Practice}">
+                                    <StackPanel Orientation="Vertical" Spacing="8">
+                                        <Border Background="#372624" Width="50" Height="50" CornerRadius="25" HorizontalAlignment="Left">
+                                            <icons:MaterialIcon Foreground="#FA913B" HorizontalAlignment="Center" Height="32" Width="32" Kind="Timer"/>
+                                        </Border>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="Practice Mode" FontWeight="Bold"/>
+                                            <TextBlock Classes="grey">
+                                                Timed session, results<LineBreak/> at the end
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </RadioButton> 
+                            </UniformGrid>
+                   </StackPanel>
+                   <StackPanel Orientation="Vertical">
+                           <Grid ColumnDefinitions="* Auto" Height="30">
+                               <TextBlock Grid.Column="0" Classes="white bold" VerticalAlignment="Center" Text="Number of Questions"/> 
+                               
+                               <Border Grid.Column="1" Background="#1B2D3E" CornerRadius="4" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="4">
+                                   <TextBlock Classes="bold" Text="{Binding NumberOfQuestions}" Foreground="#187CE4"/>
+                               </Border>
+                           </Grid>
+                           
+                           <StackPanel Orientation="Vertical" Spacing="0">
+                               <Slider TickFrequency="1" Value="{Binding NumberOfQuestions, Mode=TwoWay}" IsSnapToTickEnabled="True"/>
+                               <Grid ColumnDefinitions="* * * * *">
+                                   <Button Grid.Column="0"
+                                           Classes="noOfQuestionsOption" 
+                                           Command="{Binding SetQuestionCount}"
+                                           CommandParameter="20">
+                                       <TextBlock Classes="grey" Text="20"/>
+                                   </Button>
+                                   <Button Grid.Column="1" 
+                                           Classes="noOfQuestionsOption"
+                                           Command="{Binding SetQuestionCount}"
+                                           CommandParameter="40">
+                                       <TextBlock Classes="grey" Text="40"/>
+                                   </Button>
+                                   <Button Grid.Column="2" 
+                                           Classes="noOfQuestionsOption"
+                                           Command="{Binding SetQuestionCount}"
+                                           CommandParameter="60">
+                                       <TextBlock Classes="grey" Text="60"/>
+                                   </Button>
+                                   <Button Grid.Column="3"
+                                           Classes="noOfQuestionsOption"
+                                           Command="{Binding SetQuestionCount}"
+                                           CommandParameter="80">
+                                       <TextBlock Classes="grey" Text="80"/>
+                                   </Button>
+                                   <Button Grid.Column="4" 
+                                           Classes="noOfQuestionsOption"
+                                           Command="{Binding SetQuestionCount}"
+                                           CommandParameter="100">
+                                       <TextBlock Classes="grey" Text="100"/>
+                                   </Button>
+                               </Grid>
+                           </StackPanel>
+                           
+                           <Separator Background="#232D3A" Margin="0, 15, 0, 20"/>
+                           <Grid ColumnDefinitions="* Auto">
+                               <TextBlock Grid.Column="0" Classes="white" Text="Duration of Exam"/>
+                               <TextBlock Grid.Column="1" Classes="grey" Text="Select duration"/>
+                           </Grid>
+                           <StackPanel Spacing="0">
+                               <Slider Maximum="60" 
+                                       Value="{Binding DurationOfExam, Mode=TwoWay}" 
+                                       TickFrequency="5" 
+                                       IsSnapToTickEnabled="True"/>
+                               <Grid ColumnDefinitions="* * * *">
+                                   <Button Grid.Column="0" 
+                                           Classes="timeOption"
+                                           Command="{Binding SetExamDuration}"
+                                           CommandParameter="15">
+                                       <TextBlock Classes="grey" Text="15m"/>
+                                   </Button>
+                                   <Button Grid.Column="1" 
+                                           Classes="timeOption"
+                                           Command="{Binding SetExamDuration}"
+                                           CommandParameter="30">
+                                       <TextBlock Classes="grey" Text="30m"/>
+                                   </Button>
+                                   <Button Grid.Column="2" 
+                                           Classes="timeOption"
+                                           Command="{Binding SetExamDuration}"
+                                           CommandParameter="45">
+                                       <TextBlock Classes="grey" Text="45m"/>
+                                   </Button>
+                                   <Button Grid.Column="3" 
+                                           Classes="timeOption"
+                                           Command="{Binding SetExamDuration}"
+                                           CommandParameter="60">
+                                       <TextBlock Classes="grey" Text="60m"/>
+                                   </Button>
+                               </Grid>
+                           </StackPanel>
+                           
+                           <Button Classes="startButton"
+                                   Command="{Binding GenerateExam}">
+                               <TextBlock Classes="white" Text="{Binding DurationOfExam, StringFormat='Start! Duration:{0}m'}"/>
+                           </Button>
+                       </StackPanel>
+                   </StackPanel> 
+                </Border>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

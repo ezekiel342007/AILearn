@@ -1,0 +1,77 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+    <Design.PreviewWith>
+        <Border Width="800" Height="450" x:Name="Main">
+             <Border x:Name="NavBar" Padding="12">
+                <UniformGrid Rows="1" >
+                   <RadioButton Classes="NavItem">
+                       <StackPanel>
+                           <icons:MaterialIcon Height="24" Width="24" Kind="Home"/>
+                           <TextBlock Text="Home" />
+                       </StackPanel>
+                   </RadioButton>
+                    
+                    <RadioButton Classes="NavItem">
+                        <StackPanel>
+                            <icons:MaterialIcon Height="24" Width="24" Kind="ChartBar"/>
+                            <TextBlock Text="Results" />
+                        </StackPanel>
+                    </RadioButton>
+                </UniformGrid>
+            </Border>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+   
+   <Style Selector="Border#NavBar">
+       <Setter Property="HorizontalAlignment" Value="Stretch"/>
+       <Setter Property="VerticalAlignment" Value="Center"/>
+       <Setter Property="Background" Value="#1C242D"/>
+   </Style> 
+    
+    <Style Selector="RadioButton.NavItem">
+        <Setter Property="Foreground" Value="#65758D"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="#1C242D"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="RootBorder"
+                        Background="#1C242D"
+                        BorderThickness="2"
+                        Padding="12"
+                        CornerRadius="12"
+                        HorizontalAlignment="Stretch"
+                >
+                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="RadioButton.NavItem:checked">
+        <Setter Property="Foreground" Value="#1887F4"/>
+    </Style>
+   
+    <Style Selector="Border#Main">
+        <Setter Property="Background" Value="#111921"/>
+    </Style>
+    
+    <Style Selector="TextBlock.bold">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style Selector="TextBlock.grey">
+        <Setter Property="Foreground" Value="#5E6A7A"/>
+    </Style>
+    
+    <Style Selector="TextBlock.white">
+        <Setter Property="Foreground" Value="#DDDDDE"/>
+    </Style>
+    
+    <Style Selector="Border.MarginBorder">
+        <Setter Property="Padding" Value="14"/>
+    </Style>
+
+</Styles>

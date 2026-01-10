@@ -1,0 +1,21 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AILearn"
+             xmlns:vm="clr-namespace:AILearn.ViewModels"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="AILearn.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+    <Application.DataContext>
+        <vm:MainViewModel/>
+    </Application.DataContext>
+
+    <Application.Styles>
+        <FluentTheme />
+        <icons:MaterialIconStyles />
+    </Application.Styles>
+</Application>
