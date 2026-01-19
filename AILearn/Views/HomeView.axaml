@@ -14,19 +14,16 @@
     </UserControl.Resources>
     
     <UserControl.Styles>
-        <StyleInclude Source="avares://AILearn/Styles/HomeViewStyles.axaml"></StyleInclude>
+        <StyleInclude Source="avares://AILearn/Styles/HomeViewStyles.axaml"/>
     </UserControl.Styles>
-    
-    <UserControl.DataContext>
-        <vm:HomeViewModel/>
-    </UserControl.DataContext>
     
     <Grid RowDefinitions="Auto *">
         <Border Grid.Row="0"
                 BorderBrush="#232D3A"
                 BorderThickness="0, 0, 0, 2"
                 Padding="12, 0">
-                <Image Source="avares://AILearn/Assets/AIPractice_Logo.png" HorizontalAlignment="Left" Width="150" Height="50"/>
+                <Image Source="avares://AILearn/Assets/AIPractice_Logo.png" 
+                       HorizontalAlignment="Left" Width="150" Height="50"/>
         </Border>
         
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
