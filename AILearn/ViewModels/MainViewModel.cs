@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace AILearn.ViewModels;
@@ -14,6 +13,7 @@ public partial class MainViewModel : ViewModelBase
 
     [ObservableProperty] public Tabs _currentTab = Tabs.Home;
     [ObservableProperty] private ViewModelBase _currentPage;
+    [ObservableProperty] private bool _isNotBusy = true;
     
     private readonly HomeViewModel _homePage;
     private readonly ResultsViewModel _resultsPage = new();
@@ -28,12 +28,21 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     public void Navigate(string pageName)
     {
-        CurrentPage = pageName switch
+        switch (pageName)
         {
-            "Home" => _homePage,
-            "Results" => _resultsPage,
-            _ => _homePage
-        };
+            case "Home":
+                CurrentPage = _homePage;
+                CurrentTab = Tabs.Home;
+                break;
+            case "Results":
+                CurrentPage = _resultsPage;
+                CurrentTab = Tabs.Results;
+                break;
+            default:
+                CurrentPage = _homePage;
+                CurrentTab = Tabs.Home;
+                break;
+        }
     }
 }
 

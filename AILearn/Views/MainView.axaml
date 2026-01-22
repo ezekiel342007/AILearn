@@ -33,7 +33,7 @@
         <Grid RowDefinitions="* Auto">
             <ContentControl Grid.Row="0" Content="{Binding CurrentPage}"/>
 
-            <Border x:Name="NavBar" Padding="12" Grid.Row="1">
+            <Border x:Name="NavBar" Padding="12" Grid.Row="1" IsVisible="{Binding IsNotBusy}">
                 <UniformGrid Rows="1" >
                    <RadioButton Classes="NavItem"
                                 Command="{Binding Navigate}"

@@ -19,4 +19,9 @@ public class NavigationService
          System.Diagnostics.Debug.WriteLine(">>> [ERROR] NavigationService: Main is null");
       }
    }
+
+   public void ToggleNav(bool newState)
+   {
+      Main.IsNotBusy = newState;
+   }
 }

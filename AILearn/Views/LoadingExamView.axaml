@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AILearn.Views.LoadingExamView">
+    
+    <UserControl.Styles>
+        <StyleInclude Source="avares://AILearn/Styles/LoadingExamViewStyles.axaml"/>
+    </UserControl.Styles>
+    
+    <Border>
+        <Border.Background>
+            <RadialGradientBrush Center="0.5, 0.5" GradientOrigin="0.5, 0.5" Radius="0.75">
+                <GradientStop Color="#0F1A27" Offset="0"/>
+                <GradientStop Color="#0A0C10" Offset="1"/>
+            </RadialGradientBrush>
+        </Border.Background>
+        
+        <Grid RowDefinitions="Auto * Auto Auto">
+            <TextBlock Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Center" Foreground="#1464B5" Text="AILearn"/>
+            <StackPanel Margin="0, 8" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Grid Width="120" Height="120">
+                    <Ellipse Stroke="#222831" 
+                             StrokeThickness="8" 
+                             Width="112" 
+                             Height="112" 
+                             HorizontalAlignment="Center" 
+                             VerticalAlignment="Center"/>
+
+                    <Path Classes="spinner"
+                          StrokeThickness="8"
+                          Width="112"
+                          Height="112"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          RenderTransformOrigin="50%,50%">
+        
+                        <Path.Data>
+                            <EllipseGeometry Rect="0,0,112,112"/>
+                        </Path.Data>
+
+                        <Path.Stroke>
+                            <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+                                <GradientStop Offset="0.0" Color="#00A8FF" />
+                                <GradientStop Offset="0.8" Color="#0000A8FF" />
+                            </LinearGradientBrush>
+                        </Path.Stroke>
+        
+                        <Path.RenderTransform>
+                            <RotateTransform />
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <PathIcon Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" 
+                              Foreground="#00A8FF"
+                              Width="40" Height="40"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+                </Grid>                    
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="#FDFEFE" TextAlignment="Center" >
+                    <Run FontSize="20" FontWeight="Bold" Foreground="Blue" Text="Generating your Exam..."/><LineBreak/>
+                    We are tailoring questions to your desired preferences, this should not take too long
+                </TextBlock>
+            </StackPanel>
+            <Border Grid.Row="2" Classes="tipBox">
+               <Grid ColumnDefinitions="* Auto">
+                   <StackPanel Grid.Column="0" Orientation="Vertical">
+                       <StackPanel Spacing="6" Margin="0, 0, 0, 9" Orientation="Horizontal">
+                           <avalonia:MaterialIcon Kind="Bulb" Foreground="Blue"/>
+                           <TextBlock Text="Pro Tip" FontWeight="SemiBold" Foreground="Blue"/>
+                       </StackPanel>
+                       <TextBlock Foreground="#D7D7D8" TextWrapping="Wrap" TextAlignment="Left">
+                           Read each question twice before selecting your final answer
+                           <LineBreak/>
+                           <LineBreak/>
+                           <Run Foreground="#7A8590">Speed is not everything</Run>
+                       </TextBlock>
+                   </StackPanel>
+                   <Border Grid.Column="1" Width="100"/>
+               </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

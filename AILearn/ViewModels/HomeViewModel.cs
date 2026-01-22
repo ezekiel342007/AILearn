@@ -47,13 +47,11 @@ public partial class HomeViewModel : ViewModelBase
 
     [ObservableProperty] private string? _examQuestions;
 
-    [ObservableProperty] private bool _isBusy;
-
     [RelayCommand]
     public async Task GenerateExam()
     {
         Debug.WriteLine(">>> [DEBUG] Starting GenerateExam process....... ");
-        IsBusy = true;
+        AILearn.Services.NavigationService.Instance.ToggleNav(false);
         try
         {
             var prompt = $"generate a {NumberOfQuestions} question exam for me in json format." +
@@ -66,7 +64,7 @@ public partial class HomeViewModel : ViewModelBase
                          " and an answer which is exact copy of the correct option's value (the string content)" +
                          " the options don't need to be named A, B, C etc. Respond ONLY with valid JSON. Do not include markdown formatting or backticks like ```json.";
 
-            var client = new Client(apiKey:"AIzaSyCcDUQ4PA4JcoLW6vir7ekn5k9l8OIwhMw");
+            var client = new Client(apiKey:"AIzaSyBkjUFWmk8d5u54tr0iZBctQvSaDD6oXXk");
             var sw = Stopwatch.StartNew();
             var response = await client.Models.GenerateContentAsync(
                 model: "gemini-2.5-flash", contents: prompt
@@ -81,17 +79,12 @@ public partial class HomeViewModel : ViewModelBase
             }
 
             var finishReason = response.Candidates?[0].FinishReason;
-            Debug.WriteLine($">>>[Debug] Finish reason: {finishReason}");
+            Debug.WriteLine($">>> [Debug] Finish reason: {finishReason}");
             string jsonResult = response.Candidates?[0].Content?.Parts?[0].Text;
             
             if (!string.IsNullOrEmpty(jsonResult))
             {
                 Debug.WriteLine(">>> [DEBUG] Content successfully retrieved.");
-                if (_main == null)
-                {
-                    Debug.WriteLine(">>> [ERROR] _main is null Navigation will not work ");
-                }
-
                 try
                 {
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -103,20 +96,19 @@ public partial class HomeViewModel : ViewModelBase
                 {
                     Debug.WriteLine($">>> [ERROR] Failed to parse JSON: {ex.Message}");
                 }
-
             }
             else
             {
-                Debug.WriteLine($">>>[Debug] AI returned an empty string");
+                Debug.WriteLine($">>> [Debug] AI returned an empty string");
             }
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error generating exam: {ex.Message}");
+            Debug.WriteLine($">>> [ERROR] Error generating exam: {ex.Message}");
         }
         finally
         {
-            IsBusy = false;
+            AILearn.Services.NavigationService.Instance.ToggleNav(false);
             Debug.WriteLine(">>> [DEBUG] GenerateExam process finished.");
         }
     }

@@ -22,7 +22,12 @@
             <Grid RowDefinitions="Auto *">
                 <Border Grid.Row="0" Padding="8, 13" Classes="topBar">
                     <Grid ColumnDefinitions="Auto * Auto"  HorizontalAlignment="Stretch">
-                        <icons:MaterialIcon Grid.Column="0" Height="24" Width="24" Kind="PauseCircle" Classes="grey"/>
+                        <Button Grid.Column="0"
+                                Background="#111921"
+                                Classes="pause"
+                                Command="{Binding TogglePause}">
+                            <icons:MaterialIcon Height="24" Width="24" Kind="{Binding PlayPauseButton}" Classes="grey"/>
+                        </Button>
                         <Border Classes="timerNotch" Grid.Column="1">
                             <StackPanel Orientation="Horizontal" Spacing="3"  HorizontalAlignment="Center">
                                 <icons:MaterialIcon Kind="Timer" Foreground="#187FE7"/>

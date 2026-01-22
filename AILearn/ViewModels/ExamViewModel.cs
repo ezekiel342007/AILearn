@@ -4,6 +4,7 @@ using AILearn.Utils;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Material.Icons;
 
 namespace AILearn.ViewModels;
 
@@ -24,6 +25,25 @@ public partial class ExamViewModel: ViewModelBase
         if (value != null)
         {
             StartTimer(value.Duration);
+        }
+    }
+
+    [ObservableProperty] 
+    [NotifyPropertyChangedFor(nameof(PlayPauseButton))]
+    private bool _isPaused = false;
+    public MaterialIconKind PlayPauseButton => IsPaused? MaterialIconKind.PauseCircle: MaterialIconKind.PlayCircle;
+
+    [RelayCommand]
+    public void TogglePause()
+    {
+        if (_timer == null) return;
+        if (IsPaused)
+        {
+            _timer.Stop();
+        }
+        else
+        {
+            _timer.Start();
         }
     }
     
@@ -48,6 +68,7 @@ public partial class ExamViewModel: ViewModelBase
 
     public void StartTimer(int minutes)
     {
+        StopTimer();
         if (ExamData == null) return;
         
         _timeRemaining = TimeSpan.FromMinutes(minutes);
@@ -88,6 +109,7 @@ public partial class ExamViewModel: ViewModelBase
     public void SubmitExam()
     {
         StopTimer();
+        
     }
 
     public string PercentComplete

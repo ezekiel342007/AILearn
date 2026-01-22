@@ -24,6 +24,10 @@
     </Design.PreviewWith>
 
     <!-- Add Styles Here -->
+    <Style Selector="Button.pause:clicked">
+        <Setter Property="Foreground" Value="#0175E8"/>
+    </Style>
+    
     <Style Selector="TextBlock.white.critical">
         <Setter Property="Foreground" Value="#E92D18"/>
     </Style>
