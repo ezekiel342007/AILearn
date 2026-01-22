@@ -2,9 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AILearn.ViewModels"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AILearn.Views.LoadingExamView">
+             x:Class="AILearn.Views.LoadingExamView"
+             x:DataType="vm:LoadingExamViewModel">
     
     <UserControl.Styles>
         <StyleInclude Source="avares://AILearn/Styles/LoadingExamViewStyles.axaml"/>
@@ -20,7 +22,11 @@
         
         <Grid RowDefinitions="Auto * Auto Auto">
             <TextBlock Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Center" Foreground="#1464B5" Text="AILearn"/>
-            <StackPanel Margin="0, 8" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Margin="0, 8" 
+                        Grid.Row="1" 
+                        Orientation="Vertical" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center">
                 <Grid Width="120" Height="120">
                     <Ellipse Stroke="#222831" 
                              StrokeThickness="8" 

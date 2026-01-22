@@ -164,7 +164,7 @@
                            </StackPanel>
                            
                            <Button Classes="startButton"
-                                   Command="{Binding GenerateExam}">
+                                   Command="{Binding StartLoading}">
                                <TextBlock Classes="white" Text="{Binding DurationOfExam, StringFormat='Start! Duration:{0}m'}"/>
                            </Button>
                        </StackPanel>

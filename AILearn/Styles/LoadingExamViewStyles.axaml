@@ -90,7 +90,7 @@
     <Style Selector="Path.spinner">
         <Style.Animations>
             <Animation Duration="0:0:1.5" 
-                       IterationCount="Infinity" 
+                       IterationCount="Infinite" 
                        PlaybackDirection="Normal"
                        Easing="LinearEasing">
                 <KeyFrame Cue="0%">

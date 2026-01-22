@@ -1,11 +1,12 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Threading.Tasks;
+using AILearn.Utils;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace AILearn.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
-
     public enum Tabs
     {
         Home, Results
@@ -24,7 +25,7 @@ public partial class MainViewModel : ViewModelBase
         AILearn.Services.NavigationService.Instance.Main = this;
         CurrentPage = new HomeViewModel();
     }
-    
+
     [RelayCommand]
     public void Navigate(string pageName)
     {

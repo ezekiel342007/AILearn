@@ -31,3 +31,17 @@ public partial class ExamData: ViewModelBase
     public int Duration { get; set; }
     public List<ExamQuestion> Questions { get; set; }
 }
+
+public enum  ExamMode
+{
+    Study, Practice
+}
+
+public class ExamQuery
+{
+    public string SelectedMode { get; set; }
+    public string Major { get; set; }
+    public string Course { get; set; }
+    public int NumberOfQuestions { get; set; }
+    public int Duration { get; set; }   
+}
