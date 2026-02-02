@@ -13,6 +13,7 @@ public partial class App : Application
 {
     public override void Initialize()
     {
+        DotNetEnv.Env.Load();
         AvaloniaXamlLoader.Load(this);
     }
 

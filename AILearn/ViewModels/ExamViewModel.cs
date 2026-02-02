@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using AILearn.Utils;
 using Avalonia.Threading;
@@ -62,6 +63,7 @@ public partial class ExamViewModel: ViewModelBase
 
     private DispatcherTimer? _timer;
     private TimeSpan _timeRemaining;
+    private TimeSpan _timeUsed;
 
     public ExamQuestion? CurrentQuestion =>
         (ExamData != null && CurrentQuestionIndex < ExamData.Questions.Count) ? ExamData.Questions[CurrentQuestionIndex] : null;
@@ -72,6 +74,7 @@ public partial class ExamViewModel: ViewModelBase
         if (ExamData == null) return;
         
         _timeRemaining = TimeSpan.FromMinutes(minutes);
+        _timeUsed = TimeSpan.FromMinutes(0);
 
         _timer = new DispatcherTimer
         {
@@ -84,6 +87,7 @@ public partial class ExamViewModel: ViewModelBase
     public void Timer_Tick(object? sender, EventArgs e)
     {
         _timeRemaining = _timeRemaining.Subtract(TimeSpan.FromSeconds(1));
+        _timeUsed = _timeUsed.Add(TimeSpan.FromSeconds(1));
         TimerText = _timeRemaining.ToString(@"hh\:mm\:ss");
 
         IsTimeCritical = _timeRemaining.TotalMinutes <= 5;
@@ -109,7 +113,9 @@ public partial class ExamViewModel: ViewModelBase
     public void SubmitExam()
     {
         StopTimer();
-        
+        ExamData.TimeTaken = _timeUsed;
+        var resultsviewmodel = new ResultsViewModel { ExamData = ExamData };
+        AILearn.Services.NavigationService.Instance.NavigateTo(resultsviewmodel);
     }
 
     public string PercentComplete

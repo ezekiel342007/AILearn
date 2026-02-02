@@ -20,7 +20,14 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" />
+        <PackageReference Include="DotNetEnv" />
         <PackageReference Include="Google.GenAI" />
         <PackageReference Include="Material.Icons.Avalonia" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update=".env">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 </Project>

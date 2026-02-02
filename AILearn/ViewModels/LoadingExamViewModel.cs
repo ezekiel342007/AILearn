@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Text.Json;
 using System.Threading.Tasks;
 using AILearn.Utils;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Google.GenAI;
@@ -12,10 +13,19 @@ namespace AILearn.ViewModels;
 public partial class LoadingExamViewModel: ViewModelBase
 {
     public ExamQuery examQueryData;
+    private bool _isGenerationComplete = false;
+
+    [ObservableProperty] private int _generationProgress = 0;
+    [ObservableProperty] private string _waitingText = "Generating Questions...";
+    public string GenerationProgressPercent => ($"{GenerationProgress}%");
     
     public async Task GenerateExam()
     {
+        GenerationProgress = 0;
+        var progressSimulation = SimulateProgressAsync();
         Debug.WriteLine(">>> [DEBUG] Starting GenerateExam process....... ");
+        var apiKey = Environment.GetEnvironmentVariable("GOOGLE_API_KEY")?? throw new Exception("API Key Missing");
+        Debug.WriteLine($">>> [DEBUG] Retrieved API Key: {apiKey}");
         AILearn.Services.NavigationService.Instance.ToggleNav(false);
         try
         {
@@ -29,7 +39,7 @@ public partial class LoadingExamViewModel: ViewModelBase
                          " and an answer which is exact copy of the correct option's value (the string content)" +
                          " the options don't need to be named A, B, C etc. Respond ONLY with valid JSON. Do not include markdown formatting or backticks like ```json.";
 
-            var client = new Client(apiKey:"AIzaSyBkjUFWmk8d5u54tr0iZBctQvSaDD6oXXk");
+            var client = new Client(apiKey: apiKey);
             var sw = Stopwatch.StartNew();
             var response = await client.Models.GenerateContentAsync(
                 model: "gemini-2.5-flash", contents: prompt
@@ -46,6 +56,8 @@ public partial class LoadingExamViewModel: ViewModelBase
             var finishReason = response.Candidates?[0].FinishReason;
             Debug.WriteLine($">>> [Debug] Finish reason: {finishReason}");
             string jsonResult = response.Candidates?[0].Content?.Parts?[0].Text;
+            _isGenerationComplete = true;
+            GenerationProgress = 100;
             
             if (!string.IsNullOrEmpty(jsonResult))
             {
@@ -54,6 +66,7 @@ public partial class LoadingExamViewModel: ViewModelBase
                 {
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     ExamData myExam = JsonSerializer.Deserialize<ExamData>(jsonResult, options);
+                    await Task.Delay(500);
                     var examsPage = new ExamViewModel { ExamData = myExam };
                     AILearn.Services.NavigationService.Instance.NavigateTo(examsPage);
                 }
@@ -74,6 +87,20 @@ public partial class LoadingExamViewModel: ViewModelBase
         finally
         {
             Debug.WriteLine(">>> [DEBUG] GenerateExam process finished.");
+        }
+    }
+
+    private async Task SimulateProgressAsync()
+    {
+        _isGenerationComplete = false;
+        while (!_isGenerationComplete && GenerationProgress < 90)
+        {
+            if (GenerationProgress > 70)
+            {
+                WaitingText = "Preparing Exam...";
+            }
+            GenerationProgress += Random.Shared.Next(1, 5);
+            await Task.Delay(1000);
         }
     }
 }

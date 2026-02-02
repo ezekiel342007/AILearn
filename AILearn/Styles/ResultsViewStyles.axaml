@@ -3,7 +3,7 @@
     <Design.PreviewWith>
         <!-- Add Controls for Previewer Here -->
         <Border Width="800" Height="450" Classes="main">
-            
+
         </Border>
     </Design.PreviewWith>
 
@@ -12,5 +12,38 @@
     <Style Selector="Border.main">
         <Setter Property="Padding" Value="8"/>
         <Setter Property="Background" Value="#111921"/>
+    </Style>
+    
+    <Style Selector="Border.insightBorder">
+        <Setter Property="Background" Value="#1F73E7"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Padding" Value="12"/>
+    </Style>
+    
+    <Style Selector="Border.statBorder">
+        <Setter Property="BorderBrush" Value="#1D242D"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Background" Value="#1C2126"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Padding" Value="8"/>
+    </Style>
+    
+    <Style Selector="Border.statIconBorder">
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="CornerRadius" Value="4"/>
+    </Style>
+    
+    <Style Selector="Button.resultNavBtn">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="CornerRadius" Value="12"/>
+    </Style>
+    
+    <Style Selector="Border.scoreRemark">
+        <Setter Property="Padding" Value="8, 4"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="0, 0, 0, 6"/>
     </Style>
 </Styles>

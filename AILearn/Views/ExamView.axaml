@@ -37,7 +37,9 @@
                                            VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
-                        <Button Grid.Column="2" Classes="submitButton">Submit</Button>
+                        <Button Grid.Column="2" 
+                                Classes="submitButton"
+                                Command="{Binding SubmitExam}">Submit</Button>
                     </Grid>
                 </Border>
                 

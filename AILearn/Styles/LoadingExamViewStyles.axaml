@@ -5,24 +5,32 @@
         <Border Padding="20" Width="300" Height="700">
             <!-- Add Controls for Previewer Here -->
             <Border.Background>
-                <RadialGradientBrush Center="0.5, 0.5" GradientOrigin="0.5, 0.5" Radius="0.75">
-                    <GradientStop Color="#0F1A27" Offset="0"/>
-                    <GradientStop Color="#0A0C10" Offset="1"/>
+                <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" Radius="0.75">
+                    <GradientStop Offset="0" Color="#FF000059" />
+
+                    <GradientStop Offset="0.5" Color="#FF0B061F" />
+
+                    <GradientStop Offset="0.98" Color="#FF07071A" />
                 </RadialGradientBrush>
             </Border.Background>
             <Grid RowDefinitions="Auto * Auto Auto">
-                <TextBlock Grid.Row="0" FontWeight="SemiBold" HorizontalAlignment="Center" Foreground="#1464B5" Text="AILearn"/>
-                <StackPanel Margin="0, 8" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Grid.Row="0" FontWeight="SemiBold" 
+                           HorizontalAlignment="Center"
+                           Foreground="#1464B5" 
+                           Text="AILearn"
+                           Margin="0, 0, 0, 30"/>
+                
+                <StackPanel Margin="0, 8, 0, 5" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
                     <Grid Width="120" Height="120">
-                        <Ellipse Stroke="#222831" 
-                                 StrokeThickness="8" 
+                        <Ellipse Stroke="#0C1E33" 
+                                 StrokeThickness="1" 
                                  Width="112" 
                                  Height="112" 
                                  HorizontalAlignment="Center" 
                                  VerticalAlignment="Center"/>
 
                         <Path Classes="spinner"
-                              StrokeThickness="8"
+                              StrokeThickness="3"
                               Width="112"
                               Height="112"
                               HorizontalAlignment="Center"
@@ -35,8 +43,8 @@
 
                             <Path.Stroke>
                                 <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
-                                    <GradientStop Offset="0.0" Color="#00A8FF" />
-                                    <GradientStop Offset="0.8" Color="#0000A8FF" />
+                                    <GradientStop Offset="0.0" Color="#1885F1" />
+                                    <GradientStop Offset="0.4" Color="#0000A8FF" />
                                 </LinearGradientBrush>
                             </Path.Stroke>
             
@@ -45,23 +53,50 @@
                             </Path.RenderTransform>
                         </Path>
 
-                        <PathIcon Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" 
-                                  Foreground="#00A8FF"
-                                  Width="40" Height="40"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
+                        <icons:MaterialIcon Kind="HeadCog" 
+                                            Foreground="#187FE5"
+                                            Width="70"
+                                            Height="70"/>
                     </Grid>                    
-                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="#FDFEFE" TextAlignment="Center" >
-                        <Run FontSize="20" FontWeight="Bold" Foreground="Blue" Text="Generating your Exam..."/><LineBreak/>
+                    <TextBlock HorizontalAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               Foreground="#7C8A97" 
+                               TextAlignment="Center" 
+                               Margin="0, 30, 0, 0">
+                        <Run FontSize="20" FontWeight="Bold" Foreground="#FAFBFB" Text="Generating your Exam..."/>
+                        <LineBreak/>
+                        <LineBreak/>
                         We are tailoring questions to your desired preferences, this should not take too long
                     </TextBlock>
                 </StackPanel>
-                <Border Grid.Row="2" Classes="tipBox">
+                
+                <Border Grid.Row="2" Classes="tipBox" Margin="0, 0, 0, 16">
+                    <StackPanel Orientation="Vertical" Spacing="8">
+                        <Grid ColumnDefinitions="Auto *">
+                            <TextBlock Grid.Column="0" 
+                                       Foreground="#187FE5" 
+                                       Text="System Processing"/>
+                            <TextBlock Grid.Column="1" 
+                                       Foreground="#7C8996" 
+                                       TextAlignment="Right" 
+                                       Text="65%"/>
+                        </Grid>
+                        <ProgressBar Maximum="100" Value="65"
+                                     Foreground="#187FE5"/>
+                        <TextBlock Text="Generating Questions..." 
+                                   HorizontalAlignment="Center"
+                                   FontStyle="Italic"
+                                   Foreground="#7C8996"
+                                   TextAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                
+                <Border Grid.Row="3" Classes="tipBox">
                    <Grid ColumnDefinitions="* Auto">
                        <StackPanel Grid.Column="0" Orientation="Vertical">
                            <StackPanel Spacing="6" Margin="0, 0, 0, 9" Orientation="Horizontal">
-                               <icons:MaterialIcon Kind="Bulb" Foreground="Blue"/>
-                               <TextBlock Text="Pro Tip" FontWeight="SemiBold" Foreground="Blue"/>
+                               <icons:MaterialIcon Kind="Bulb" Foreground="#187FE5"/>
+                               <TextBlock Text="Pro Tip" FontWeight="SemiBold" Foreground="#187FE5"/>
                            </StackPanel>
                            <TextBlock Foreground="#D7D7D8" TextWrapping="Wrap" TextAlignment="Left">
                                Read each question twice before selecting your final answer

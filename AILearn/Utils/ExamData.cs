@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AILearn.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -30,6 +31,7 @@ public partial class ExamData: ViewModelBase
     public int NumberOfQuestions { get; set; }
     public int Duration { get; set; }
     public List<ExamQuestion> Questions { get; set; }
+    public TimeSpan? TimeTaken { get; set; }
 }
 
 public enum  ExamMode
