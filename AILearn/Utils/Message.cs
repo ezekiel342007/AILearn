@@ -1,5 +1,14 @@
+using CommunityToolkit.Mvvm.Messaging.Messages;
+
 namespace AILearn.Utils;
 
-public class QuestionAnsweredMessage { }
+public class QuestionAnsweredMessage : ValueChangedMessage<int>
+{
+    public QuestionAnsweredMessage(int questionNumber) : base(questionNumber)
+    { }
+}
 
-public class QuestionsGeneratedMessage { }
+public class QuestionPickedMessage
+{
+    public int QuestionIndex { get; set; }
+}

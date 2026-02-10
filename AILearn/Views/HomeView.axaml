@@ -35,15 +35,16 @@
                        </StackPanel>
                        <StackPanel Orientation="Vertical" Spacing="4">
                            <TextBlock Classes="white">Major</TextBlock>
-                           <ComboBox ItemsSource="{Binding CourseMajors}" 
-                                     SelectedItem="{Binding Major}" 
+                           <ComboBox ItemsSource="{Binding Majors}" 
+                                     SelectedItem="{Binding SelectedMajor}" 
+                                     DisplayMemberBinding="{Binding Title}"
                                      Classes="dropdown" SelectedIndex="0">
                            </ComboBox>
                        </StackPanel>
                        <StackPanel Orientation="Vertical" Spacing="4">
                            <TextBlock Classes="white">Course</TextBlock>
                            <ComboBox ItemsSource="{Binding Courses}" 
-                                     SelectedItem="{Binding Course}" 
+                                     SelectedItem="{Binding SelectedCourse}" 
                                      Classes="dropdown" SelectedIndex="0">
                            </ComboBox>
                        </StackPanel>

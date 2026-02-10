@@ -1,0 +1,852 @@
+[
+  {
+    "id": "cs_01",
+    "title": "Computer Science",
+    "category": "Science & Technology",
+    "courses": [
+      "Introduction to Programming",
+      "Data Structures & Algorithms",
+      "Computer Architecture",
+      "Operating Systems",
+      "Database Management",
+      "Discrete Mathematics",
+      "Software Engineering",
+      "Computer Networks",
+      "Artificial Intelligence",
+      "Theory of Computation"
+    ]
+  },
+  {
+    "id": "ba_02",
+    "title": "Business Administration",
+    "category": "Business",
+    "courses": [
+      "Principles of Management",
+      "Financial Accounting",
+      "Marketing Management",
+      "Microeconomics",
+      "Macroeconomics",
+      "Business Ethics",
+      "Corporate Finance",
+      "Operations Management",
+      "Organizational Behavior",
+      "Strategic Management"
+    ]
+  },
+  {
+    "id": "me_03",
+    "title": "Mechanical Engineering",
+    "category": "Engineering",
+    "courses": [
+      "Thermodynamics",
+      "Fluid Mechanics",
+      "Statics",
+      "Dynamics",
+      "Materials Science",
+      "Heat Transfer",
+      "Mechanical Design",
+      "Manufacturing Processes",
+      "Calculus III",
+      "Control Systems"
+    ]
+  },
+  {
+    "id": "py_04",
+    "title": "Psychology",
+    "category": "Social Sciences",
+    "courses": [
+      "Introduction to Psychology",
+      "Research Methods",
+      "Abnormal Psychology",
+      "Developmental Psychology",
+      "Cognitive Psychology",
+      "Social Psychology",
+      "Biological Basis of Behavior",
+      "Psychological Statistics",
+      "Personality Theory",
+      "Experimental Psychology"
+    ]
+  },
+  {
+    "id": "nu_05",
+    "title": "Nursing",
+    "category": "Healthcare",
+    "courses": [
+      "Anatomy & Physiology",
+      "Microbiology",
+      "Pharmacology",
+      "Pathophysiology",
+      "Health Assessment",
+      "Foundations of Nursing",
+      "Medical-Surgical Nursing",
+      "Pediatric Nursing",
+      "Psychiatric Nursing",
+      "Community Health"
+    ]
+  },
+  {
+    "id": "ee_06",
+    "title": "Electrical Engineering",
+    "category": "Engineering",
+    "courses": [
+      "Circuit Analysis",
+      "Digital Logic Design",
+      "Electromagnetic Fields",
+      "Signal Processing",
+      "Microelectronics",
+      "Power Systems",
+      "Control Theory",
+      "Communication Systems",
+      "Linear Algebra",
+      "Embedded Systems"
+    ]
+  },
+  {
+    "id": "ec_07",
+    "title": "Economics",
+    "category": "Social Sciences",
+    "courses": [
+      "Intermediate Microeconomics",
+      "Intermediate Macroeconomics",
+      "Econometrics",
+      "Calculus for Economics",
+      "Public Policy",
+      "International Trade",
+      "Game Theory",
+      "Money and Banking",
+      "History of Economic Thought",
+      "Development Economics"
+    ]
+  },
+  {
+    "id": "bi_08",
+    "title": "Biology",
+    "category": "Science",
+    "courses": [
+      "General Biology",
+      "Genetics",
+      "Cell Biology",
+      "Ecology",
+      "Evolutionary Biology",
+      "Organic Chemistry",
+      "Biochemistry",
+      "Physiology",
+      "Molecular Biology",
+      "Microbiology"
+    ]
+  },
+  {
+    "id": "ce_09",
+    "title": "Civil Engineering",
+    "category": "Engineering",
+    "courses": [
+      "Structural Analysis",
+      "Geotechnical Engineering",
+      "Transportation Engineering",
+      "Environmental Engineering",
+      "Surveying",
+      "Construction Management",
+      "Hydraulics",
+      "Reinforced Concrete Design",
+      "Steel Design",
+      "Engineering Mechanics"
+    ]
+  },
+  {
+    "id": "ps_10",
+    "title": "Political Science",
+    "category": "Social Sciences",
+    "courses": [
+      "Introduction to Political Science",
+      "International Relations",
+      "Comparative Politics",
+      "Political Theory",
+      "Public Administration",
+      "Constitutional Law",
+      "Research Methods in Politics",
+      "Public Policy Analysis",
+      "Foreign Policy",
+      "Political Economy"
+    ]
+  },
+  {
+    "id": "ch_11",
+    "title": "Chemistry",
+    "category": "Science",
+    "courses": [
+      "General Chemistry",
+      "Organic Chemistry I",
+      "Inorganic Chemistry",
+      "Physical Chemistry",
+      "Analytical Chemistry",
+      "Biochemistry",
+      "Quantum Chemistry",
+      "Instrumental Analysis",
+      "Thermodynamics",
+      "Chemical Kinetics"
+    ]
+  },
+  {
+    "id": "ma_12",
+    "title": "Mathematics",
+    "category": "Science",
+    "courses": [
+      "Calculus I",
+      "Calculus II",
+      "Linear Algebra",
+      "Abstract Algebra",
+      "Real Analysis",
+      "Differential Equations",
+      "Probability and Statistics",
+      "Complex Variables",
+      "Number Theory",
+      "Topology"
+    ]
+  },
+  {
+    "id": "en_13",
+    "title": "English Literature",
+    "category": "Humanities",
+    "courses": [
+      "Introduction to Literature",
+      "British Literature",
+      "American Literature",
+      "Shakespeare",
+      "Literary Theory",
+      "Creative Writing",
+      "Poetry",
+      "The Novel",
+      "Victorian Literature",
+      "Post-Colonial Literature"
+    ]
+  },
+  {
+    "id": "ac_14",
+    "title": "Accounting",
+    "category": "Business",
+    "courses": [
+      "Financial Accounting",
+      "Managerial Accounting",
+      "Auditing",
+      "Taxation",
+      "Intermediate Accounting",
+      "Accounting Information Systems",
+      "Cost Accounting",
+      "Business Law",
+      "Corporate Finance",
+      "Forensic Accounting"
+    ]
+  },
+  {
+    "id": "ar_15",
+    "title": "Architecture",
+    "category": "Arts & Design",
+    "courses": [
+      "Architectural Design Studio",
+      "History of Architecture",
+      "Building Materials",
+      "Structural Systems",
+      "Environmental Systems",
+      "Urban Design",
+      "Digital Modeling",
+      "Architectural Theory",
+      "Sustainable Design",
+      "Professional Practice"
+    ]
+  },
+  {
+    "id": "ph_16",
+    "title": "Physics",
+    "category": "Science",
+    "courses": [
+      "Classical Mechanics",
+      "Electromagnetism",
+      "Quantum Mechanics",
+      "Thermodynamics",
+      "Statistical Mechanics",
+      "Optics",
+      "Nuclear Physics",
+      "Mathematical Physics",
+      "Solid State Physics",
+      "Experimental Physics"
+    ]
+  },
+  {
+    "id": "so_17",
+    "title": "Sociology",
+    "category": "Social Sciences",
+    "courses": [
+      "Introduction to Sociology",
+      "Social Theory",
+      "Research Methods",
+      "Social Stratification",
+      "Sociology of Gender",
+      "Race and Ethnicity",
+      "Criminology",
+      "Medical Sociology",
+      "Urban Sociology",
+      "Quantitative Data Analysis"
+    ]
+  },
+  {
+    "id": "mk_18",
+    "title": "Marketing",
+    "category": "Business",
+    "courses": [
+      "Consumer Behavior",
+      "Marketing Research",
+      "Digital Marketing",
+      "Brand Management",
+      "Advertising and Promotion",
+      "Sales Management",
+      "International Marketing",
+      "Marketing Strategy",
+      "Public Relations",
+      "Supply Chain Management"
+    ]
+  },
+  {
+    "id": "co_19",
+    "title": "Communications",
+    "category": "Humanities",
+    "courses": [
+      "Mass Communication",
+      "Media Ethics",
+      "Interpersonal Communication",
+      "Public Speaking",
+      "Journalism",
+      "Media Law",
+      "Digital Media Production",
+      "Crisis Management",
+      "Strategic Communication",
+      "Visual Communication"
+    ]
+  },
+  {
+    "id": "hi_20",
+    "title": "History",
+    "category": "Humanities",
+    "courses": [
+      "World History",
+      "Historical Research Methods",
+      "Ancient Civilizations",
+      "Medieval History",
+      "Modern History",
+      "Historiography",
+      "Military History",
+      "Economic History",
+      "Art History",
+      "Political History"
+    ]
+  },
+  {
+    "id": "lw_21",
+    "title": "Law",
+    "category": "Professional",
+    "courses": [
+      "Contract Law",
+      "Criminal Law",
+      "Torts",
+      "Constitutional Law",
+      "Property Law",
+      "Legal Research & Writing",
+      "Administrative Law",
+      "International Law",
+      "Family Law",
+      "Commercial Law"
+    ]
+  },
+  {
+    "id": "fi_22",
+    "title": "Finance",
+    "category": "Business",
+    "courses": [
+      "Investments",
+      "Corporate Finance",
+      "Financial Markets",
+      "International Finance",
+      "Portfolio Management",
+      "Financial Modeling",
+      "Derivative Securities",
+      "Risk Management",
+      "Wealth Management",
+      "Banking Operations"
+    ]
+  },
+  {
+    "id": "ir_23",
+    "title": "International Relations",
+    "category": "Social Sciences",
+    "courses": [
+      "International Relations Theory",
+      "Security Studies",
+      "International Political Economy",
+      "Diplomacy",
+      "Global Governance",
+      "Conflict Resolution",
+      "Foreign Policy Analysis",
+      "Human Rights",
+      "International Law",
+      "Regional Studies"
+    ]
+  },
+  {
+    "id": "it_24",
+    "title": "Information Technology",
+    "category": "Science & Technology",
+    "courses": [
+      "Systems Administration",
+      "Network Security",
+      "Web Development",
+      "Database Systems",
+      "Cloud Computing",
+      "Information Security",
+      "IT Project Management",
+      "Human-Computer Interaction",
+      "Enterprise Systems",
+      "Cybersecurity"
+    ]
+  },
+  {
+    "id": "be_25",
+    "title": "Biomedical Engineering",
+    "category": "Engineering",
+    "courses": [
+      "Biomechanics",
+      "Biomaterials",
+      "Medical Imaging",
+      "Bioinstrumentation",
+      "Physiology for Engineers",
+      "Tissue Engineering",
+      "Bio-signal Processing",
+      "Clinical Engineering",
+      "Biotechnology",
+      "Systems Physiology"
+    ]
+  },
+  {
+    "id": "ed_26",
+    "title": "Education",
+    "category": "Education",
+    "courses": [
+      "Educational Psychology",
+      "Curriculum Design",
+      "Instructional Methods",
+      "Assessment and Evaluation",
+      "Special Education",
+      "Classroom Management",
+      "Educational Technology",
+      "Philosophy of Education",
+      "Literacy Development",
+      "Leadership in Education"
+    ]
+  },
+  {
+    "id": "an_27",
+    "title": "Anthropology",
+    "category": "Social Sciences",
+    "courses": [
+      "Cultural Anthropology",
+      "Biological Anthropology",
+      "Archaeology",
+      "Linguistic Anthropology",
+      "Ethnographic Research Methods",
+      "Human Evolution",
+      "Social Organization",
+      "Economic Anthropology",
+      "Medical Anthropology",
+      "Applied Anthropology"
+    ]
+  },
+  {
+    "id": "gd_28",
+    "title": "Graphic Design",
+    "category": "Arts & Design",
+    "courses": [
+      "Typography",
+      "Color Theory",
+      "Digital Illustration",
+      "Layout Design",
+      "User Experience (UX) Design",
+      "Branding and Identity",
+      "Motion Graphics",
+      "Design History",
+      "Photography",
+      "Portfolio Development"
+    ]
+  },
+  {
+    "id": "st_29",
+    "title": "Statistics",
+    "category": "Science",
+    "courses": [
+      "Probability Theory",
+      "Mathematical Statistics",
+      "Regression Analysis",
+      "Experimental Design",
+      "Multivariate Analysis",
+      "Stochastic Processes",
+      "Sampling Techniques",
+      "Data Mining",
+      "Time Series Analysis",
+      "Bayesian Inference"
+    ]
+  },
+  {
+    "id": "pl_30",
+    "title": "Philosophy",
+    "category": "Humanities",
+    "courses": [
+      "Logic",
+      "Ethics",
+      "Epistemology",
+      "Metaphysics",
+      "Ancient Philosophy",
+      "Modern Philosophy",
+      "Philosophy of Mind",
+      "Social and Political Philosophy",
+      "Philosophy of Science",
+      "Aesthetics"
+    ]
+  },
+  {
+    "id": "en_31",
+    "title": "Environmental Science",
+    "category": "Science",
+    "courses": [
+      "Ecology",
+      "Environmental Chemistry",
+      "Geology",
+      "Climate Science",
+      "Environmental Policy",
+      "Sustainable Development",
+      "GIS and Remote Sensing",
+      "Hydrology",
+      "Conservation Biology",
+      "Waste Management"
+    ]
+  },
+  {
+    "id": "hr_32",
+    "title": "Human Resources",
+    "category": "Business",
+    "courses": [
+      "Recruitment and Selection",
+      "Training and Development",
+      "Compensation and Benefits",
+      "Employment Law",
+      "Performance Management",
+      "Employee Relations",
+      "Strategic HR Management",
+      "Labor Economics",
+      "Conflict Resolution",
+      "Organizational Change"
+    ]
+  },
+  {
+    "id": "cr_33",
+    "title": "Criminology",
+    "category": "Social Sciences",
+    "courses": [
+      "Criminal Justice Systems",
+      "Victimology",
+      "Criminal Law",
+      "Juvenile Delinquency",
+      "Police and Society",
+      "Penology",
+      "Forensic Science",
+      "Research Methods",
+      "Psychology of Crime",
+      "Cybercrime"
+    ]
+  },
+  {
+    "id": "ph_34",
+    "title": "Pharmacy",
+    "category": "Healthcare",
+    "courses": [
+      "Pharmacology",
+      "Pharmaceutics",
+      "Medicinal Chemistry",
+      "Pharmacokinetics",
+      "Pharmacy Practice",
+      "Biopharmaceutics",
+      "Toxicology",
+      "Pharmacy Law and Ethics",
+      "Clinical Pharmacy",
+      "Therapeutics"
+    ]
+  },
+  {
+    "id": "fa_35",
+    "title": "Fine Arts",
+    "category": "Arts & Design",
+    "courses": [
+      "Drawing",
+      "Painting",
+      "Sculpture",
+      "Art History",
+      "Art Theory",
+      "Contemporary Art",
+      "Printmaking",
+      "Digital Art",
+      "Studio Practice",
+      "Exhibition Design"
+    ]
+  },
+  {
+    "id": "ge_36",
+    "title": "Geology",
+    "category": "Science",
+    "courses": [
+      "Physical Geology",
+      "Mineralogy",
+      "Petrology",
+      "Sedimentology",
+      "Structural Geology",
+      "Historical Geology",
+      "Geophysics",
+      "Geochemistry",
+      "Paleontology",
+      "Field Mapping"
+    ]
+  },
+  {
+    "id": "sc_37",
+    "title": "Software Engineering",
+    "category": "Science & Technology",
+    "courses": [
+      "Software Requirements",
+      "Software Testing & QA",
+      "Project Management",
+      "Systems Analysis",
+      "Software Architecture",
+      "Mobile App Development",
+      "Human-Computer Interaction",
+      "Data Structures",
+      "Cloud Systems",
+      "Agile Methodologies"
+    ]
+  },
+  {
+    "id": "hm_38",
+    "title": "Hospitality Management",
+    "category": "Business",
+    "courses": [
+      "Hotel Operations",
+      "Food and Beverage Management",
+      "Event Planning",
+      "Tourism Management",
+      "Hospitality Marketing",
+      "Front Office Management",
+      "Financial Management in Hospitality",
+      "Customer Service Management",
+      "Sustainable Tourism",
+      "Hospitality Law"
+    ]
+  },
+  {
+    "id": "ae_39",
+    "title": "Aerospace Engineering",
+    "category": "Engineering",
+    "courses": [
+      "Aerodynamics",
+      "Propulsion Systems",
+      "Flight Mechanics",
+      "Orbital Mechanics",
+      "Aircraft Structures",
+      "Spacecraft Systems",
+      "Avionics",
+      "Gas Dynamics",
+      "Control Systems",
+      "Materials for Aerospace"
+    ]
+  },
+  {
+    "id": "da_40",
+    "title": "Data Science",
+    "category": "Science & Technology",
+    "courses": [
+      "Statistical Inference",
+      "Machine Learning",
+      "Data Visualization",
+      "Big Data Analytics",
+      "Data Mining",
+      "Python for Data Science",
+      "SQL and NoSQL Databases",
+      "Ethics in Data Science",
+      "Probability",
+      "Data Engineering"
+    ]
+  },
+  {
+    "id": "ms_41",
+    "title": "Materials Science",
+    "category": "Engineering",
+    "courses": [
+      "Crystallography",
+      "Thermodynamics of Materials",
+      "Mechanical Properties of Materials",
+      "Polymers",
+      "Ceramics and Glasses",
+      "Metallurgy",
+      "Nanotechnology",
+      "Electronic Properties",
+      "Materials Characterization",
+      "Composite Materials"
+    ]
+  },
+  {
+    "id": "pu_42",
+    "title": "Public Health",
+    "category": "Healthcare",
+    "courses": [
+      "Epidemiology",
+      "Biostatistics",
+      "Environmental Health",
+      "Health Policy",
+      "Global Health",
+      "Health Promotion",
+      "Public Health Ethics",
+      "Social Determinants of Health",
+      "Infectious Diseases",
+      "Health Systems Management"
+    ]
+  },
+  {
+    "id": "fo_43",
+    "title": "Food Science",
+    "category": "Science",
+    "courses": [
+      "Food Chemistry",
+      "Food Microbiology",
+      "Food Processing",
+      "Sensory Evaluation",
+      "Nutrition Science",
+      "Food Quality Control",
+      "Food Laws and Regulations",
+      "Product Development",
+      "Food Engineering",
+      "Food Toxicology"
+    ]
+  },
+  {
+    "id": "ur_44",
+    "title": "Urban Planning",
+    "category": "Social Sciences",
+    "courses": [
+      "Urban Design Theory",
+      "Land Use Planning",
+      "Housing Policy",
+      "Transportation Planning",
+      "GIS for Planners",
+      "Environmental Planning",
+      "Community Development",
+      "Urban Economics",
+      "Planning Law",
+      "Sustainable Cities"
+    ]
+  },
+  {
+    "id": "nu_45",
+    "title": "Nutrition & Dietetics",
+    "category": "Healthcare",
+    "courses": [
+      "Human Nutrition",
+      "Clinical Dietetics",
+      "Medical Nutrition Therapy",
+      "Community Nutrition",
+      "Food Service Management",
+      "Nutritional Biochemistry",
+      "Public Health Nutrition",
+      "Life Cycle Nutrition",
+      "Counseling Skills",
+      "Physiology"
+    ]
+  },
+  {
+    "id": "sp_46",
+    "title": "Sports Science",
+    "category": "Healthcare",
+    "courses": [
+      "Exercise Physiology",
+      "Biomechanics",
+      "Sports Psychology",
+      "Motor Learning",
+      "Sports Nutrition",
+      "Strength and Conditioning",
+      "Anatomy",
+      "Injury Prevention",
+      "Kinesiology",
+      "Sports Management"
+    ]
+  },
+  {
+    "id": "ag_47",
+    "title": "Agriculture",
+    "category": "Science",
+    "courses": [
+      "Soil Science",
+      "Crop Production",
+      "Animal Science",
+      "Agricultural Economics",
+      "Pest Management",
+      "Plant Breeding",
+      "Sustainable Agriculture",
+      "Irrigation Systems",
+      "Agribusiness",
+      "Food Security"
+    ]
+  },
+  {
+    "id": "mu_48",
+    "title": "Music",
+    "category": "Arts & Design",
+    "courses": [
+      "Music Theory",
+      "Music History",
+      "Aural Skills",
+      "Composition",
+      "Conducting",
+      "Ethnomusicology",
+      "Performance Studio",
+      "Orchestration",
+      "Music Technology",
+      "Chamber Music"
+    ]
+  },
+  {
+    "id": "li_49",
+    "title": "Linguistics",
+    "category": "Humanities",
+    "courses": [
+      "Phonetics",
+      "Phonology",
+      "Syntax",
+      "Semantics",
+      "Sociolinguistics",
+      "Psycholinguistics",
+      "Historical Linguistics",
+      "Morphology",
+      "Computational Linguistics",
+      "Pragmatics"
+    ]
+  },
+  {
+    "id": "jo_50",
+    "title": "Journalism",
+    "category": "Humanities",
+    "courses": [
+      "News Writing",
+      "Investigative Reporting",
+      "Media Law",
+      "Photojournalism",
+      "Digital Storytelling",
+      "Broadcast Journalism",
+      "Ethics in Journalism",
+      "Feature Writing",
+      "Copy Editing",
+      "Multimedia Production"
+    ]
+  }
+]

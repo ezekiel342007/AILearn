@@ -2,28 +2,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
     <Design.PreviewWith>
-        <Border Padding="20" Width="400" Height="150">
-            <!-- Add Controls for Previewer Here -->
-            <Border Grid.Row="0" Padding="8, 13" Classes="topBar">
-                <Grid ColumnDefinitions="Auto * Auto"  HorizontalAlignment="Stretch">
-                    <icons:MaterialIcon Grid.Column="0" Height="24" Width="24" Kind="PauseCircle" Classes="grey"/>
-                    <Border Classes="timerNotch" Grid.Column="1">
-                        <StackPanel Orientation="Horizontal" Spacing="3"  HorizontalAlignment="Center">
-                            <icons:MaterialIcon Kind="Timer" Foreground="#187FE7"/>
-                            <TextBlock Text="00:45:00" 
-                                       Classes="white" 
-                                       Classes.critical="true"
-                                       VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
-                    <Button Grid.Column="2" Classes="submitButton">Submit</Button>
-                </Grid>
-            </Border>
-
+        <Border Classes="main" Padding="100" Width="400" Height="450">
+            <!-- Add Controls for Previewer Here -->    
+            <Button Classes="questionButton">
+                <TextBlock Text="14" Foreground="White"/>
+            </Button>
         </Border>
     </Design.PreviewWith>
 
     <!-- Add Styles Here -->
+    <Style Selector="Button.questionButton">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background" Value="#252F39"/>
+        <Setter Property="Margin" Value="2, 2, 2, 2"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="BorderBrush" Value="#33363D"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    
+    <Style Selector="Button.questionButton ContentPresenter">
+       <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+       <Setter Property="HorizontalAlignment" Value="Center"/>
+       <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style Selector="Button.questionButton.answered">
+        <Setter Property="Background" Value="#0175E8"/>
+    </Style>
+    
+    <Style Selector="Button.questionButton.current">
+        <Setter Property="BorderBrush" Value="#E92D18"/>
+    </Style>
+    
     <Style Selector="Button.pause:clicked">
         <Setter Property="Foreground" Value="#0175E8"/>
     </Style>

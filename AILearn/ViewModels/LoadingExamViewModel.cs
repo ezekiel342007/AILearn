@@ -66,6 +66,8 @@ public partial class LoadingExamViewModel: ViewModelBase
                 {
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     ExamData myExam = JsonSerializer.Deserialize<ExamData>(jsonResult, options);
+                    // Set first question to current
+                    myExam.Questions[0].IsCurrent = true;
                     await Task.Delay(500);
                     var examsPage = new ExamViewModel { ExamData = myExam };
                     AILearn.Services.NavigationService.Instance.NavigateTo(examsPage);

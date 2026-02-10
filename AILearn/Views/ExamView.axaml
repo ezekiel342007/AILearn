@@ -18,55 +18,56 @@
     </UserControl.Styles>
     
     <Border Classes="main">
-        <ScrollViewer>
-            <Grid RowDefinitions="Auto *">
-                <Border Grid.Row="0" Padding="8, 13" Classes="topBar">
-                    <Grid ColumnDefinitions="Auto * Auto"  HorizontalAlignment="Stretch">
-                        <Button Grid.Column="0"
-                                Background="#111921"
-                                Classes="pause"
-                                Command="{Binding TogglePause}">
-                            <icons:MaterialIcon Height="24" Width="24" Kind="{Binding PlayPauseButton}" Classes="grey"/>
-                        </Button>
-                        <Border Classes="timerNotch" Grid.Column="1">
-                            <StackPanel Orientation="Horizontal" Spacing="3"  HorizontalAlignment="Center">
-                                <icons:MaterialIcon Kind="Timer" Foreground="#187FE7"/>
-                                <TextBlock Text="{Binding TimerText}" 
-                                           Classes="white" 
-                                           Classes.critical="{Binding IsTimeCritical}"
-                                           VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
-                        <Button Grid.Column="2" 
-                                Classes="submitButton"
-                                Command="{Binding SubmitExam}">Submit</Button>
-                    </Grid>
-                </Border>
-                
-                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10, 20">
-                   <StackPanel Orientation="Vertical">
-                       <Grid ColumnDefinitions="* Auto">
-                           <TextBlock Grid.Column="0" Classes="grey">
-                               <TextBlock.Text>
-                                   <MultiBinding StringFormat="Questions {0} of {1}">
-                                       <Binding Path="CurrentQuestion.QuestionNumber"/>
-                                       <Binding Path="ExamData.NumberOfQuestions"/>
-                                   </MultiBinding>
-                                   
-                               </TextBlock.Text>
-                           </TextBlock>
-                           <TextBlock Grid.Column="1" 
-                                      Classes="percentComplete" 
-                                      Text="{Binding PercentComplete}" 
-                                      HorizontalAlignment="Right"/>
-                       </Grid>
-                       <ProgressBar Minimum="0" 
-                                    Maximum="{Binding ExamData.NumberOfQuestions}" 
-                                    Height="10" 
-                                    Value="{Binding AnsweredQuestions}" 
-                                    Margin="0, 5"/>
-                   </StackPanel>
+        <Grid RowDefinitions="* Auto">
+            <ScrollViewer Grid.Row="0">
+                <Grid RowDefinitions="Auto *">
+                    <Border Grid.Row="0" Padding="8, 13" Classes="topBar">
+                        <Grid ColumnDefinitions="Auto * Auto"  HorizontalAlignment="Stretch">
+                            <Button Grid.Column="0"
+                                    Background="#111921"
+                                    Classes="pause"
+                                    Command="{Binding TogglePause}">
+                                <icons:MaterialIcon Height="24" Width="24" Kind="{Binding PlayPauseButton}" Classes="grey"/>
+                            </Button>
+                            <Border Classes="timerNotch" Grid.Column="1">
+                                <StackPanel Orientation="Horizontal" Spacing="3"  HorizontalAlignment="Center">
+                                    <icons:MaterialIcon Kind="Timer" Foreground="#187FE7"/>
+                                    <TextBlock Text="{Binding TimerText}" 
+                                               Classes="white" 
+                                               Classes.critical="{Binding IsTimeCritical}"
+                                               VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                            <Button Grid.Column="2" 
+                                    Classes="submitButton"
+                                    Command="{Binding SubmitExam}">Submit</Button>
+                        </Grid>
+                    </Border>
                     
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10, 20">
+                        <StackPanel Orientation="Vertical">
+                            <Grid ColumnDefinitions="* Auto">
+                                <TextBlock Grid.Column="0" Classes="grey">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="Questions {0} of {1}">
+                                           <Binding Path="CurrentQuestion.QuestionNumber"/>
+                                           <Binding Path="ExamData.NumberOfQuestions"/>
+                                        </MultiBinding>
+                                       
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" 
+                                          Classes="percentComplete" 
+                                          Text="{Binding PercentComplete}" 
+                                          HorizontalAlignment="Right"/>
+                            </Grid>
+                            <ProgressBar Minimum="0" 
+                                        Maximum="{Binding ExamData.NumberOfQuestions}" 
+                                        Height="10" 
+                                        Value="{Binding AnsweredQuestions}" 
+                                        Margin="0, 5"/>
+                       </StackPanel>
+                        
                         <StackPanel Margin="0, 10" Orientation="Vertical">
                             <Grid RowDefinitions="Auto Auto">
                                 <ScrollViewer Grid.Row="1" Height="100">
@@ -97,25 +98,46 @@
                                              IsChecked="{Binding CurrentQuestion.SelectedOptionIndex, Converter={StaticResource IntToBool}, ConverterParameter=3, Mode=TwoWay}">
                                     <TextBlock Text="{Binding CurrentQuestion.Options[3]}"/>
                                 </RadioButton>
+                                
+                                <ItemsControl Margin="0, 35, 0, 0" ItemsSource="{Binding ExamData.Questions}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button Classes="questionButton"
+                                                    Content="{Binding QuestionNumber}"
+                                                    Classes.answered="{Binding Answered}"
+                                                    Classes.current="{Binding IsCurrent}"
+                                                    Command="{Binding JumpToQuestion}"
+                                                    CommandParameter="{Binding QuestionNumber}">
+                                            </Button>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                             </StackPanel>
                             
-                            <Grid ColumnDefinitions="* *" Margin="0, 20" ColumnSpacing="10">
-                                <Button Grid.Column="0" Classes="previous" Command="{Binding PreviousQuestion}">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <icons:MaterialIcon Kind="ArrowLeft" Height="24" Width="24" VerticalAlignment="Center"/>
-                                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Previous</TextBlock>
-                                    </StackPanel>
-                                </Button>
-                                <Button Grid.Column="1" Classes="next" Command="{Binding NextQuestion}">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Next</TextBlock>
-                                        <icons:MaterialIcon Kind="ArrowRight" Height="24" Width="24" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </Button>
-                            </Grid>
+
                         </StackPanel>
-                </StackPanel>
-            </Grid>
-        </ScrollViewer>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+            <Grid Grid.Row="1" ColumnDefinitions="* *" Margin="0, 20" ColumnSpacing="10">
+                <Button Grid.Column="0" Classes="previous" Command="{Binding PreviousQuestion}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <icons:MaterialIcon Kind="ArrowLeft" Height="24" Width="24" VerticalAlignment="Center"/>
+                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Previous</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="1" Classes="next" Command="{Binding NextQuestion}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock FontWeight="Bold" VerticalAlignment="Center">Next</TextBlock>
+                        <icons:MaterialIcon Kind="ArrowRight" Height="24" Width="24" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Grid>     
+        </Grid>
     </Border>
 </UserControl>

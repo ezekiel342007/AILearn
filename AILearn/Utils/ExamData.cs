@@ -9,18 +9,25 @@ public partial class ExamQuestion: ViewModelBase
 {
     public int QuestionNumber { get; set; }
     public string QuestionText { get; set; }
-    public bool Answered { get; set; }
     public List<string> Options { get; set; }
     public string Answer { get; set; }
-    [ObservableProperty]
-    private int _selectedOptionIndex = -1;
+    
+    [ObservableProperty] private int _selectedOptionIndex = -1;
+    [ObservableProperty] private bool _answered = false;
+    [ObservableProperty] private bool _isCurrent = false;
+    
+    public void JumpToQuestion(int quenstionNumber)
+    {
+        this.IsCurrent = false;
+        WeakReferenceMessenger.Default.Send(new QuestionPickedMessage {QuestionIndex  = quenstionNumber});
+    }
 
     partial void OnSelectedOptionIndexChanged(int value)
     {
         if (value != -1 && !Answered)
         {
             Answered = true;
-            WeakReferenceMessenger.Default.Send(new QuestionAnsweredMessage());
+            WeakReferenceMessenger.Default.Send(new QuestionAnsweredMessage(this.QuestionNumber));
         }
     }
 }
